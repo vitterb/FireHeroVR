@@ -1,29 +1,54 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    public ParticleSystem fire;
+    public ParticleSystem Marekfire;
+
+    public ParticleSystem extinguisher;
     // Start is called before the first frame update
     void Start()
     {
-        
-        fire = gameObject.GetComponent<ParticleSystem>();
+        extinguisher = GetComponent<ParticleSystem>();
+        Marekfire = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        fire.transform.localScale -= new Vector3(0.001f, 0.001f, 0.001f);
-        if (fire.transform.localScale.magnitude < 0.001f)
+        /*Marekfire.transform.localScale -= new Vector3(0.001f, 0.001f, 0.001f);*/
+        if (Marekfire.transform.localScale.magnitude < 0.001f)
         {
-            fire.gameObject.SetActive(false);
+            Marekfire.gameObject.SetActive(false);
         }
         else
         {
-            fire.gameObject.SetActive(true);
+            Marekfire.gameObject.SetActive(true);
         }
         
     }
+
+    /*private void OnParticleCollision(GameObject other)
+    {
+        ParticleSystem extinguisher = other.GetComponent<ParticleSystem>();
+        if (other.gameObject.CompareTag("MarekFire"))
+        {
+            Debug.Log("Particle collided with " + other.name == "Firegoesdown");
+            if (extinguisher != null)
+            {
+                // interact with the other particle system
+                Marekfire.transform.localScale -= new Vector3(0.001f, 0.001f, 0.001f);
+            }
+        }
+    }*/
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.gameObject.CompareTag("MarekFire"))
+        {
+            Marekfire.gameObject.SetActive(false);
+        }
+    }
+    
 }
