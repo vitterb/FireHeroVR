@@ -6,7 +6,7 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {
     public float fireGrow = 0.5f;
-    public float waitTime = 5f;
+    public float waitTime = 2f;
     private Vector3 startingScale;
     public ParticleSystem Marekfire;
     public ParticleSystem Mareksmoke;
@@ -15,11 +15,14 @@ public class Fire : MonoBehaviour
     {
         Marekfire = GetComponent<ParticleSystem>();
         Mareksmoke = GetComponent<ParticleSystem>();
+        
     }
+    
 
     // Update is called once per frame
     void Update()
     {
+        
         /*Marekfire.transform.localScale -= new Vector3(0.001f, 0.001f, 0.001f);*/
         if (Marekfire.transform.localScale.magnitude < 0.01f && Mareksmoke.transform.localScale.magnitude < 0.01f)
         {
@@ -29,7 +32,11 @@ public class Fire : MonoBehaviour
         {
             Marekfire.gameObject.SetActive(true);
         }
-        
+
+        if (Marekfire.transform.localScale.magnitude <= 5f)
+        {
+            Marekfire.transform.localScale += new Vector3(0.0001f, 0.0001f, 0.0001f);
+        }
     }
 
     /*private void OnParticleCollision(GameObject other)
@@ -49,19 +56,20 @@ public class Fire : MonoBehaviour
     {
         if (other.gameObject.CompareTag("MarekExt"))
         {
-            Marekfire.transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
+            Marekfire.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
             Mareksmoke.transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
         }
     }
 
     private IEnumerator WaitingForChange()
     {
-        yield return new WaitForSeconds(waitTime);
-        if (transform.localScale == startingScale)
+        do
         {
-            
-        }
+            yield return new WaitForSeconds(waitTime);
+            Marekfire.transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
+        } while (Marekfire.transform.localScale.magnitude < 3f);
+
     }
     
-
+    
 }
