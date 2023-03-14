@@ -8,18 +8,22 @@ public class FireSpawn : MonoBehaviour
 {
     public ParticleSystem FirePrefab;
     public Transform[] spawnPoints;
-
     public float numberOfFires;
     public int spawnDelay;
+    public Fire fireScript;
+    
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnFires());
+        fireScript = GetComponent<Fire>();
     }
 
     private void Update()
     {
-        
+        if (fireScript.MaxFire)
+        {
+            StartCoroutine(SpawnFires()); 
+        }
     }
 
     // Update is called once per frame

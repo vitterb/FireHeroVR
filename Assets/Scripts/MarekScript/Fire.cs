@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    public float fireGrow = 0.5f;
+    public float fireGrow = 0.0001f;
     public float waitTime = 2f;
     private Vector3 startingScale;
     public ParticleSystem Marekfire;
     public ParticleSystem Mareksmoke;
+    public bool MaxFire = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +34,18 @@ public class Fire : MonoBehaviour
             Marekfire.gameObject.SetActive(true);
         }
 
-        if (Marekfire.transform.localScale.magnitude <= 5f)
+        if (!MaxFire && Marekfire.transform.localScale.magnitude < 5f)
+        {
+            Marekfire.transform.localScale += new Vector3(fireGrow, fireGrow, fireGrow);
+        }
+        else if(Marekfire.transform.localScale.magnitude > 4f)
+        {
+            MaxFire = true;
+        }
+        else
         {
             Marekfire.transform.localScale += new Vector3(0.0001f, 0.0001f, 0.0001f);
+            MaxFire = false;
         }
     }
 
