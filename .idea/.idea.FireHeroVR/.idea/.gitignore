@@ -4,8 +4,8 @@
 # Rider ignored files
 /modules.xml
 /projectSettingsUpdater.xml
-/.idea.FireHeroVR.iml
 /contentModel.xml
+/.idea.FireHeroVR.iml
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
