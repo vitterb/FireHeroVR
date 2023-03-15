@@ -32,7 +32,6 @@ public class FireSpawn : MonoBehaviour
         int spawnIndex = Random.Range(0, spawnPoints.Length);
         Transform spawnPoint = spawnPoints[spawnIndex];
         ParticleSystem fire = Instantiate(FirePrefab, spawnPoint.position, spawnPoint.rotation);
-     
     }
     IEnumerator SpawnFires()
     {
