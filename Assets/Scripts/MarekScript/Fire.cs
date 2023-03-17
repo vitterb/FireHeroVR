@@ -2,23 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 public class Fire : MonoBehaviour
 {
+    public Transform[] spawnPoints;
     public float fireGrow = 0.0001f;
     public float waitTime = 2f;
     private Vector3 startingScale;
     public ParticleSystem Marekfire;
+    public ParticleSystem Marekfire1;
     public ParticleSystem Mareksmoke;
     public bool MaxFire = false;
+    public int numberFire;
+    public int numberOfFires = 2; 
     // Start is called before the first frame update
     void Start()
     {
+        numberFire = 1;
         Marekfire = GetComponent<ParticleSystem>();
         Mareksmoke = GetComponent<ParticleSystem>();
-        
     }
-    
 
     // Update is called once per frame
     void Update()
@@ -40,7 +43,16 @@ public class Fire : MonoBehaviour
         }
         else if(Marekfire.transform.localScale.magnitude > 4f)
         {
-            MaxFire = true;
+            if (numberFire > 0)
+            {
+                for (int i = 0; i < numberOfFires; i++)
+                {
+                    int spawnIndex = Random.Range(0, spawnPoints.Length);
+                    Transform spawnPoint = spawnPoints[spawnIndex];
+                    ParticleSystem fire = Instantiate(Marekfire1, spawnPoint.position, spawnPoint.rotation);
+                    numberFire = -1;
+                }
+            }
         }
         else
         {
@@ -80,6 +92,4 @@ public class Fire : MonoBehaviour
         } while (Marekfire.transform.localScale.magnitude < 3f);
 
     }
-    
-    
 }
