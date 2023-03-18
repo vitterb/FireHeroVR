@@ -5,6 +5,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 public class Fire : MonoBehaviour
 {
+    public int FireDamage = 1;
     public Transform[] spawnPoints;
     public float fireGrow = 0.0001f;
     public float waitTime = 2f;
