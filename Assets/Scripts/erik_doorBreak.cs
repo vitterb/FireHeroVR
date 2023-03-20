@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class erik_doorBreak : MonoBehaviour
 {
   public GameObject door;
+  public GameObject brokenDoor;
 
 
   private void OnCollisionEnter(Collision other)
@@ -13,6 +14,7 @@ public class erik_doorBreak : MonoBehaviour
       if (other.gameObject.CompareTag("axe"))
       {
           door.SetActive(false);
+          brokenDoor.SetActive(true);
       }
   }
 }
