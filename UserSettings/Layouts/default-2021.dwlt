@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 76
+  controlID: 82
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 77
+  controlID: 83
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 78
+  controlID: 84
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -318,22 +318,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Audio
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Audio
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\ryanh\Documents\Projects Repository\FireHeroVR
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a27f0000
-    m_LastClickedID: 32674
-    m_ExpandedIDs: 000000009c7f000000ca9a3b
+    m_SelectedIDs: 82890000
+    m_LastClickedID: 35202
+    m_ExpandedIDs: 000000007487000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -361,7 +361,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009c7f0000
+    m_ExpandedIDs: 0000000074870000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -490,10 +490,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 78}
-      m_SelectedIDs: aeb5ffff
-      m_LastClickedID: -19026
-      m_ExpandedIDs: 10c1ffff5accffff20d9ffffecfaffff
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: ea930000
+      m_LastClickedID: 37866
+      m_ExpandedIDs: 48e5fffffafaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -743,9 +743,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 56.407158, y: -2.9455757, z: -19.302387}
+    m_Target: {x: 18.839401, y: -4.5628953, z: -39.561897}
     speed: 2
-    m_Value: {x: 56.407158, y: -2.9455757, z: -19.302387}
+    m_Value: {x: 18.839401, y: -4.5628953, z: -39.561897}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -792,13 +792,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.08756438, y: 0.8943453, z: -0.2007534, w: 0.39009455}
+    m_Target: {x: -0.025176372, y: -0.955104, z: 0.08504251, w: -0.2826333}
     speed: 2
-    m_Value: {x: 0.08846703, y: 0.8925823, z: -0.20035766, w: 0.3941158}
+    m_Value: {x: -0.025176734, y: -0.9551177, z: 0.08504373, w: -0.28263736}
   m_Size:
-    m_Target: 56.66546
+    m_Target: 19.521078
     speed: 2
-    m_Value: 54.22532
+    m_Value: 19.521078
   m_Ortho:
     m_Target: 0
     speed: 2
