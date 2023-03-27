@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
-
+namespace RyanScripts
+{
     public class TeleportPlayer : MonoBehaviour
     {
         public Transform teleportTarget;
@@ -14,4 +11,5 @@ using UnityEngine;
             player.transform.position = teleportTarget.transform.position;
         }
     }
+}
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace RyanScripts
 {
-    public class OpacityChanger : MonoBehaviour
+    public class AudioManager : MonoBehaviour
     {
         // Start is called before the first frame update
         void Start()
