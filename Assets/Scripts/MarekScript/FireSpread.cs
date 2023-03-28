@@ -16,10 +16,10 @@ public class FireSpread : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fireScript.MaxFire && fireScript.numberOfFires > 0)
-        {
-            StartCoroutine(SpawnParticle());
-        }
+        //if (fireScript.MaxFire && fireScript.numberOfFires > 0)
+        //{
+        //    StartCoroutine(SpawnParticle());
+        //}
     }
     
     private IEnumerator SpawnParticle()
