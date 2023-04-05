@@ -23,7 +23,7 @@ public class Fire2 : MonoBehaviour
     {
         
         /*Marekfire.transform.localScale -= new Vector3(0.001f, 0.001f, 0.001f);*/
-        if (Marekfire.transform.localScale.magnitude < 0.01f && Mareksmoke.transform.localScale.magnitude < 0.01f)
+        if (Marekfire.transform.localScale.magnitude < 0.1f && Mareksmoke.transform.localScale.magnitude < 0.01f)
         {
             Marekfire.gameObject.SetActive(false);
         }
