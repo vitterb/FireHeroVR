@@ -71,7 +71,21 @@ public class GameMenuManager : MonoBehaviour
             Panel.gameObject.SetActive(false);
         }
     } 
+    private void Awake()
+    {
+        if (PlayerPrefs.HasKey("Volume")){
+            SetVolume(PlayerPrefs.GetFloat("Volume"));
+            volumeSlider.value = PlayerPrefs.GetFloat("Volume");
+        }
+    }
 
+    [SerializeField] private Slider volumeSlider;
+
+    public void SetVolume(float volume)
+    {
+        AudioListener.volume = volume;
+        PlayerPrefs.SetFloat("Volume", volume);
+    }
     
 
 }
