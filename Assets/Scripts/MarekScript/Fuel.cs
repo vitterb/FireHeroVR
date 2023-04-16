@@ -15,8 +15,8 @@ public class Fuel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fuel.transform.localScale -= new Vector3(0.0f, 0.00f, 0.01f);
-        if (fuel.transform.localScale.z < 0.1f)
+        fuel.transform.localScale -= new Vector3(0.0f, 0.0001f, 0.0f);
+        if (fuel.transform.localScale.y < 0.1f)
         {
             fuel.SetActive(false);
             Ext.gameObject.SetActive(false);
