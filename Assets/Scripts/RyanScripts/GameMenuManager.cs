@@ -16,13 +16,13 @@ public class GameMenuManager : MonoBehaviour
     private object currentMat;
     public GameObject Panel;
     
-    // Start is called before the first frame update
+    
     void Start()
     {
 
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         if (showButton.action.WasPerformedThisFrame())
