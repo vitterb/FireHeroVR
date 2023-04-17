@@ -27,4 +27,20 @@ public class Health : MonoBehaviour
             MarekPlayer.transform.localScale -= new Vector3(0.0f, 0.00f, 0.01f);
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("MarekFire"))
+        {
+            MarekPlayer.transform.localScale -= new Vector3(0.0f, 0.00f, 0.01f);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("MarekFire"))
+        {
+            MarekPlayer.transform.localScale -= new Vector3(0.0f, 0.00f, 0.01f);
+        }
+    }
 }

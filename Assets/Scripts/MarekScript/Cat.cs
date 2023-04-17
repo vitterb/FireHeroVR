@@ -35,18 +35,6 @@ public class Cat : MonoBehaviour
                 break;
 
         }
-        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        if((currentState == EnemyState.Idle || currentState == EnemyState.Moving)&& distanceToPlayer < 5f)
-        {
-            currentState = EnemyState.Following;
-
-        }
-        if((currentState == EnemyState.Moving) && distanceToPlayer > 5f)
-        {
-            currentState=EnemyState.Moving;
-        }
-
-    
     }
     
     void SetRandomDestination()
