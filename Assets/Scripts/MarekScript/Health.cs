@@ -6,7 +6,6 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public GameObject MarekPlayer;
-    public int PlayerHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +21,22 @@ public class Health : MonoBehaviour
     }
 
     private void OnParticleCollision(GameObject other)
+    {
+        if (other.gameObject.CompareTag("MarekFire"))
+        {
+            MarekPlayer.transform.localScale -= new Vector3(0.0f, 0.00f, 0.01f);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("MarekFire"))
+        {
+            MarekPlayer.transform.localScale -= new Vector3(0.0f, 0.00f, 0.01f);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("MarekFire"))
         {
