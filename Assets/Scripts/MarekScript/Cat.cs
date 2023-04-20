@@ -12,7 +12,6 @@ public class Cat : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -30,7 +29,6 @@ public class Cat : MonoBehaviour
                 }
                 break;
             case EnemyState.Following:
-                navMeshAgent.SetDestination(player.transform.position);
 
                 break;
 
