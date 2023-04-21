@@ -8,6 +8,8 @@ TagManager:
   - MarekExt
   - axe
   - MarekHealth
+  - playerMarek
+  - end
   layers:
   - Default
   - TransparentFX
