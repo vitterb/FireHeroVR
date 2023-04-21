@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Grow : MonoBehaviour
 {
-    public ParticleSystem growFire;
-
-    public float growNumber = 0.001f;
+    public Transform growFire;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +14,12 @@ public class Grow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        growFire.transform.localScale += new Vector3(growNumber, growNumber, growNumber);
+        Vector3 firePos = growFire.position;
+        // Quaternion fireRot = growFire.rotation;
+        Vector3 fireSca = growFire.localScale;
+
+        transform.position = firePos;
+        // transform.rotation = fireRot;
+        transform.localScale = fireSca;
     }
 }

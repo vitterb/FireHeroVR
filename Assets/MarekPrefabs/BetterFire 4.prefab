@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5366130369343134951}
-  - component: {fileID: 8206304594708071736}
   - component: {fileID: 5067313292638445470}
   - component: {fileID: 7054430865251800255}
+  - component: {fileID: 3852005414705314204}
   m_Layer: 0
   m_Name: CartoonFire 1
   m_TagString: MarekFire
@@ -40,19 +40,6 @@ Transform:
   m_Father: {fileID: 5961152645753319148}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0.004, y: 0.031, z: 0.046}
---- !u!65 &8206304594708071736
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519227656009208643}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.19767511, z: 0}
 --- !u!198 &5067313292638445470
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4841,6 +4828,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &3852005414705314204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519227656009208643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a96280db53c7134884dcd31cda6d8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growFire: {fileID: 5961152645753319148}
 --- !u!1 &617563133720230950
 GameObject:
   m_ObjectHideFlags: 0
@@ -14661,7 +14661,6 @@ MonoBehaviour:
   fireGrow: 0.0001
   waitTime: 2
   Marekfire: {fileID: 949971008482324044}
-  Mareksmoke: {fileID: 0}
   MaxFire: 0
 --- !u!1 &3201099480417908753
 GameObject:

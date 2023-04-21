@@ -12,7 +12,6 @@ public class Fire : MonoBehaviour
     private Vector3 startingScale;
     public ParticleSystem Marekfire;
     public ParticleSystem Marekfire1;
-    public ParticleSystem Mareksmoke;
     public bool MaxFire = false;
     public int numberFire;
     public int numberOfFires = 2; 
@@ -21,7 +20,6 @@ public class Fire : MonoBehaviour
     {
         numberFire = 1;
         Marekfire = GetComponent<ParticleSystem>();
-        Mareksmoke = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -29,7 +27,7 @@ public class Fire : MonoBehaviour
     {
         
         /*Marekfire.transform.localScale -= new Vector3(0.001f, 0.001f, 0.001f);*/
-        if (Marekfire.transform.localScale.magnitude < 0.5f && Mareksmoke.transform.localScale.magnitude < 0.5f)
+        if (Marekfire.transform.localScale.magnitude < 0.5f)
         {
             Marekfire.gameObject.SetActive(false);
         }
@@ -38,11 +36,11 @@ public class Fire : MonoBehaviour
             Marekfire.gameObject.SetActive(true);
         }
 
-        if (!MaxFire && Marekfire.transform.localScale.magnitude < 5f)
+        if (!MaxFire && Marekfire.transform.localScale.magnitude < 3f)
         {
             Marekfire.transform.localScale += new Vector3(fireGrow, fireGrow, fireGrow);
         }
-        else if(Marekfire.transform.localScale.magnitude > 4f)
+        else if(Marekfire.transform.localScale.magnitude > 2f)
         {
             if (numberFire > 0)
             {
@@ -80,7 +78,6 @@ public class Fire : MonoBehaviour
         if (other.gameObject.CompareTag("MarekExt"))
         {
             Marekfire.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
-            Mareksmoke.transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
         }
     }
 
