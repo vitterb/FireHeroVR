@@ -11,6 +11,7 @@ public class Interact : MonoBehaviour
     public bool grab = false;
     private void Start()
     {
+        goal = false;
         grab = false;
     }
 
@@ -35,11 +36,6 @@ public class Interact : MonoBehaviour
            if (other.gameObject.CompareTag("playerMarek"))
            {
                grab = true;
-           }
-
-           if (other.gameObject.CompareTag("end") && goal)
-           {
-               Application.Quit();
            }
        }
 }

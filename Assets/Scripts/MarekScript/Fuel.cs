@@ -1,33 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.XR.Oculus.Input;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Fuel : MonoBehaviour
 {
+    public OculusTouchController button; 
     public GameObject fuel;
     public ParticleSystem Ext;
-    public XRController controller;
+
+    public bool full;
     // Start is called before the first frame update
     void Start()
     {
-        controller = GameObject.Find("LeftHand Controller").GetComponent<XRController>();
+        full = true;
         Ext.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (fuel.transform.localScale.y < 0.1f)
+        Ext.gameObject.SetActive(false);
+        if (button.primaryButton.isPressed && full)
+        {
+            Ext.gameObject.SetActive(true);
+            fuel.transform.localScale -= new Vector3(0.0f, 0.0001f, 0.0f);
+            if (fuel.transform.localScale.y < 0.1f)
+            {
+                full = false;
+            }
+        }
+        if (!full)
         {
             fuel.SetActive(false);
             Ext.gameObject.SetActive(false);
         }
-        if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue) && primaryButtonValue)
+        /*fuel.transform.localScale -= new Vector3(0.0f, 0.0001f, 0.0f);
+        
+        if (fuel.transform.localScale.y < 0.1f)
         {
-            fuel.transform.localScale -= new Vector3(0.0f, 0.0001f, 0.0f);
-            Ext.gameObject.SetActive(true);
-        }
+            fuel.SetActive(false);
+            Ext.gameObject.SetActive(false);
+        }*/
     }
 }
