@@ -8,7 +8,6 @@ public class EndGame : MonoBehaviour
 {
     public GameObject HealthRestart;
 
-    public Interact goal;
     // Start is called before the first frame update
     void Start()
     {
