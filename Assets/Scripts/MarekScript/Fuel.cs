@@ -4,13 +4,12 @@ using Unity.XR.Oculus.Input;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
-
+using UnityEngine.InputSystem;
 public class Fuel : MonoBehaviour
 {
-    public OculusTouchController button; 
     public GameObject fuel;
     public ParticleSystem Ext;
-
+    public InputActionProperty ybutton;
     public bool full;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +22,7 @@ public class Fuel : MonoBehaviour
     void Update()
     {
         Ext.gameObject.SetActive(false);
-        if (button.primaryButton.isPressed && full)
+        if (ybutton.action.WasPressedThisFrame() && full)
         {
             Ext.gameObject.SetActive(true);
             fuel.transform.localScale -= new Vector3(0.0f, 0.0001f, 0.0f);
