@@ -14,12 +14,10 @@ public class Grow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 firePos = growFire.position;
-        // Quaternion fireRot = growFire.rotation;
-        Vector3 fireSca = growFire.localScale;
+        Vector3 firePos = growFire.position; // position of growFire
+        Vector3 fireSca = growFire.localScale; // scale of growFire
 
-        transform.position = firePos;
-        // transform.rotation = fireRot;
-        transform.localScale = fireSca;
+        transform.position = firePos; // set position depending on growFire
+        transform.localScale = fireSca; // set scale depending on growFire
     }
 }

@@ -5,89 +5,61 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 public class Fire : MonoBehaviour
 {
-    public int FireDamage = 1;
-    public Transform[] spawnPoints;
-    public float fireGrow = 0.0001f;
-    public float waitTime = 2f;
+    public Transform[] spawnPoints; // array for spawning
+    public float fireGrow = 0.0001f; // number that determines the growth of the fire 
     private Vector3 startingScale;
     public ParticleSystem Marekfire;
     public ParticleSystem Marekfire1;
     public bool MaxFire = false;
-    public int numberFire;
-    public int numberOfFires = 2; 
+    public int numberFire; //additional fires counter
+    public int numberOfFires = 2; // number of fires to spawn
     // Start is called before the first frame update
     void Start()
     {
-        numberFire = 1;
-        Marekfire = GetComponent<ParticleSystem>();
+        numberFire = 1; // set to number 1;
+        Marekfire = GetComponent<ParticleSystem>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        /*Marekfire.transform.localScale -= new Vector3(0.001f, 0.001f, 0.001f);*/
-        if (Marekfire.transform.localScale.magnitude < 0.5f)
+        if (Marekfire.transform.localScale.magnitude < 0.5f) // check the magnitude, if less then 0.5
         {
-            Marekfire.gameObject.SetActive(false);
+            Marekfire.gameObject.SetActive(false); // set particle to false
         }
-        else
+        else // if magnitude is not less than 0.5
         {
-            Marekfire.gameObject.SetActive(true);
+            Marekfire.gameObject.SetActive(true); // set particle to true, visible
         }
 
-        if (!MaxFire && Marekfire.transform.localScale.magnitude < 3f)
+        if (!MaxFire && Marekfire.transform.localScale.magnitude < 3f) // check for fire to grow 
         {
             Marekfire.transform.localScale += new Vector3(fireGrow, fireGrow, fireGrow);
         }
-        else if(Marekfire.transform.localScale.magnitude > 2f)
+        else if(Marekfire.transform.localScale.magnitude > 2f) // if the fire has reached a certain size, then spread 
         {
-            if (numberFire > 0)
+            if (numberFire > 0) // how many times
             {
-                for (int i = 0; i < numberOfFires; i++)
+                for (int i = 0; i < numberOfFires; i++) // how many fires
                 {
-                    int spawnIndex = Random.Range(0, spawnPoints.Length);
-                    Transform spawnPoint = spawnPoints[spawnIndex];
-                    ParticleSystem fire = Instantiate(Marekfire1, spawnPoint.position, spawnPoint.rotation);
-                    numberFire = -1;
+                    int spawnIndex = Random.Range(0, spawnPoints.Length);// random spawn between spawning points 
+                    Transform spawnPoint = spawnPoints[spawnIndex]; // get the spawning point
+                    ParticleSystem fire = Instantiate(Marekfire1, spawnPoint.position, spawnPoint.rotation); // duplicate fires between those points
+                    numberFire = -1; // change the number of times it's supposed to happen
                 }
             }
         }
-        else
+        else 
         {
-            Marekfire.transform.localScale += new Vector3(0.0001f, 0.0001f, 0.0001f);
+            Marekfire.transform.localScale += new Vector3(fireGrow, fireGrow, fireGrow);
             MaxFire = false;
         }
     }
-
-    /*private void OnParticleCollision(GameObject other)
-    {
-        ParticleSystem extinguisher = other.GetComponent<ParticleSystem>();
-        if (other.gameObject.CompareTag("MarekFire"))
-        {
-            Debug.Log("Particle collided with " + other.name == "Firegoesdown");
-            if (extinguisher != null)
-            {
-                // interact with the other particle system
-                Marekfire.transform.localScale -= new Vector3(0.001f, 0.001f, 0.001f);
-            }
-        }
-    }*/
     private void OnParticleCollision(GameObject other)
     {
-        if (other.gameObject.CompareTag("MarekExt"))
+        if (other.gameObject.CompareTag("MarekExt")) // find a particle, which has tag MarekExt
         {
-            Marekfire.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
+            Marekfire.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f); // scale down the scale
         }
-    }
-
-    private IEnumerator WaitingForChange()
-    {
-        do
-        {
-            yield return new WaitForSeconds(waitTime);
-            Marekfire.transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
-        } while (Marekfire.transform.localScale.magnitude < 3f);
-
     }
 }

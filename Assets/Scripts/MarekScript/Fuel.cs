@@ -28,15 +28,15 @@ public class Fuel : MonoBehaviour
         if (full && ok)
         {
             Ext.gameObject.SetActive(true);
-            fuel.transform.localScale -= new Vector3(0.0f, 0.0f, 0.001f);
+            fuel.transform.localScale -= new Vector3(0.0f, 0.0f, 0.001f); // decrease the scale of object
         }
-        if (ybutton.action.IsPressed() && full)
+        if (ybutton.action.IsPressed() && full) // if you hold the button, stop the fire extinguisher
         {
             ok = false;
             Ext.gameObject.SetActive(false);
             fuel.transform.localScale -= new Vector3(0.0f, 0.0f, 0.0f);
         }
-        if (fuel.transform.localScale.z < 0.1f)
+        if (fuel.transform.localScale.z < 0.1f) // if the z scale is less than 0,1, set everything false
         {
             full = false;
             fuel.SetActive(false);

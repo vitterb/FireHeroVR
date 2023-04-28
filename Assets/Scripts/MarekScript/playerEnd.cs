@@ -5,24 +5,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class playerEnd : MonoBehaviour
 {
-    public Interact goal;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    public Interact goal; // interacting with a script in unity
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("end") && goal.goal)
+        if (other.gameObject.CompareTag("end") && goal.goal) // if the player collide with the game object that has tag "end" and the goal is true
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // go to the next scene
         }
     }
 }
