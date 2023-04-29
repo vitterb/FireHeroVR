@@ -6,17 +6,13 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public GameObject MarekPlayer;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
     {
         if (MarekPlayer.transform.localScale.z < 0.1f)
         {
-            MarekPlayer.SetActive(false);
+            MarekPlayer.SetActive(false); // set the game object to be false, deactivate
         }
     }
 
@@ -24,7 +20,7 @@ public class Health : MonoBehaviour
     {
         if (other.gameObject.CompareTag("MarekFire"))
         {
-            MarekPlayer.transform.localScale -= new Vector3(0.0f, 0.00f, 0.01f);
+            MarekPlayer.transform.localScale -= new Vector3(0.0f, 0.00f, 0.01f); // change the scale of the game object
         }
     }
 
@@ -32,15 +28,7 @@ public class Health : MonoBehaviour
     {
         if (other.gameObject.CompareTag("MarekFire"))
         {
-            MarekPlayer.transform.localScale -= new Vector3(0.0f, 0.00f, 0.01f);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("MarekFire"))
-        {
-            MarekPlayer.transform.localScale -= new Vector3(0.0f, 0.00f, 0.01f);
+            MarekPlayer.transform.localScale -= new Vector3(0.0f, 0.00f, 0.01f); // change the scale of the game object
         }
     }
 }

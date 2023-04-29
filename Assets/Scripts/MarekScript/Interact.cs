@@ -17,15 +17,15 @@ public class Interact : MonoBehaviour
 
     private void Update()
     {
-        if (grab)
+        if (grab) // if it is true
         {
-            Vector3 cotchPos = cotch.position;
-            Quaternion cotchRot = cotch.rotation;
-            Vector3 cotchSca = cotch.localScale;
+            Vector3 cotchPos = cotch.position; // position of cotch
+            Quaternion cotchRot = cotch.rotation; // rotation of growFire
+            Vector3 cotchSca = cotch.localScale; // scale of growFire
    
-            transform.position = cotchPos;
-            transform.rotation = cotchRot;
-            transform.localScale = cotchSca;
+            transform.position = cotchPos; // set position depending on cotchPos
+            transform.rotation = cotchRot; // set rotation depending on cotchRot
+            transform.localScale = cotchSca; // set scale depending on cotchSca
             
             goal = true;
         }
@@ -33,9 +33,9 @@ public class Interact : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
        {
-           if (other.gameObject.CompareTag("playerMarek"))
+           if (other.gameObject.CompareTag("playerMarek")) // collide with the game object that has tag playerMarek
            {
-               grab = true;
+               grab = true; // set grab to be true
            }
        }
 }
