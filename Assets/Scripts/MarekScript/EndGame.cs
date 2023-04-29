@@ -17,15 +17,15 @@ public class EndGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!HealthRestart.activeSelf)
+        if (!HealthRestart.activeSelf) //if game object is not active, start the function or method
         {
-            Restart();
+            Restart(); 
         }
         
     }
     private void Restart()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // load the scene for restarting the game
         }
 
    

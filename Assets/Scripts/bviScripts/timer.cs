@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class timer : MonoBehaviour
 {
-    private int counter = 150;
+    private int counter = 450;
 
     // Update is called once per frame
     void Update()
     {
         counter -= 1;
         if (counter <= 0)
-            SceneManager.LoadScene("betascene");
+            SceneManager.LoadScene("betasceneMarek");
     }
 }

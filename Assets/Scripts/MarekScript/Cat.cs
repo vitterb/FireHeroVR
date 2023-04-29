@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.AI; 
 public class Cat : MonoBehaviour
 {
-    public enum EnemyState {Idle, Moving, Following}
+    public enum CatState {Idle, Moving, Following}
     private NavMeshAgent navMeshAgent;
-    private GameObject player;
-    public EnemyState currentState = EnemyState.Idle;
+    public CatState currentState = CatState.Moving;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,30 +16,27 @@ public class Cat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //navMeshAgent.SetDestination(player.transform.position);
         switch (currentState)
         {
-            case EnemyState.Idle:
+            case CatState.Idle:
                 break;
-            case EnemyState.Moving:
-                if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f)
+            case CatState.Moving:
+                if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.1f) //check for current destination and 
                 {
-                    SetRandomDestination();
+                    SetRandomDestination(); // start function for random direction
                 }
                 break;
-            case EnemyState.Following:
-
+            case CatState.Following:
                 break;
-
         }
     }
     
     void SetRandomDestination()
     {
-        Vector3 randomDirection = Random.insideUnitSphere * 10;
-        randomDirection += transform.position;
-        NavMeshHit hit;
-        NavMesh.SamplePosition(randomDirection, out hit, 10f, NavMesh.AllAreas);
-        navMeshAgent.SetDestination(hit.position);
+        Vector3 randomDirection = Random.insideUnitSphere * 10; //generate random direction, range 10
+        randomDirection += transform.position; //random direction move according to the cat's current position  
+        NavMeshHit hit; // final goal for Cat
+        NavMesh.SamplePosition(randomDirection, out hit, 10f, NavMesh.AllAreas); //find position within 10f in NavMeshArea, random position
+        navMeshAgent.SetDestination(hit.position); //hit the position
     }
 }

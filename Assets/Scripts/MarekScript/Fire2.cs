@@ -2,11 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 public class Fire2 : MonoBehaviour
 {
     public float fireGrow = 0.0001f;
-    public float waitTime = 2f;
     private Vector3 startingScale;
     public ParticleSystem Marekfire;
     public bool MaxFire = false;
@@ -20,59 +18,35 @@ public class Fire2 : MonoBehaviour
     void Update()
     {
         
-        /*Marekfire.transform.localScale -= new Vector3(0.001f, 0.001f, 0.001f);*/
-        if (Marekfire.transform.localScale.magnitude < 0.1f)
+        if (Marekfire.transform.localScale.magnitude < 0.5f) // check the magnitude, if less then 0.5
         {
-            Marekfire.gameObject.SetActive(false);
+            Marekfire.gameObject.SetActive(false);// set particle to false
         }
-        else
+        else // if magnitude is not less than 0.5
         {
-            Marekfire.gameObject.SetActive(true);
+            Marekfire.gameObject.SetActive(true); // set particle to true, visible
         }
 
-        if (!MaxFire && Marekfire.transform.localScale.magnitude < 3f)
+        if (!MaxFire && Marekfire.transform.localScale.magnitude < 3f) // check for fire to grow 
         {
             Marekfire.transform.localScale += new Vector3(fireGrow, fireGrow, fireGrow);
         }
-        else if(Marekfire.transform.localScale.magnitude > 2f)
+        else if(Marekfire.transform.localScale.magnitude > 2f) // if the fire has reached a certain size, then stop
         {
             MaxFire = true;
         }
         else
         {
-            Marekfire.transform.localScale += new Vector3(0.0001f, 0.0001f, 0.0001f);
+            Marekfire.transform.localScale += new Vector3(fireGrow, fireGrow, fireGrow);
             MaxFire = false;
         }
     }
-
-    /*private void OnParticleCollision(GameObject other)
-    {
-        ParticleSystem extinguisher = other.GetComponent<ParticleSystem>();
-        if (other.gameObject.CompareTag("MarekFire"))
-        {
-            Debug.Log("Particle collided with " + other.name == "Firegoesdown");
-            if (extinguisher != null)
-            {
-                // interact with the other particle system
-                Marekfire.transform.localScale -= new Vector3(0.001f, 0.001f, 0.001f);
-            }
-        }
-    }*/
+    
     private void OnParticleCollision(GameObject other)
     {
-        if (other.gameObject.CompareTag("MarekExt"))
+        if (other.gameObject.CompareTag("MarekExt"))// find a particle, which has tag MarekExt
         {
-            Marekfire.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
+            Marekfire.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f); // scale down the scale
         }
-    }
-
-    private IEnumerator WaitingForChange()
-    {
-        do
-        {
-            yield return new WaitForSeconds(waitTime);
-            Marekfire.transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
-        } while (Marekfire.transform.localScale.magnitude < 3f);
-
     }
 }
