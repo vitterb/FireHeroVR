@@ -12,6 +12,6 @@ public class timer : MonoBehaviour
     {
         counter -= 1;
         if (counter <= 0)
-            SceneManager.LoadScene("betasceneMarek");
+            SceneManager.LoadScene("betasceneBVI");
     }
 }

@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Startscreen.unity
     guid: d244d81c30e4a104a85d388e6e1fae6c
   - enabled: 1
-    path: Assets/Scenes/betasceneMarek.unity
-    guid: 06f6f42aa5eb22145b5f4289bf7ca0d8
+    path: Assets/Scenes/betasceneBVI.unity
+    guid: 13c58b5e1e3ea3a42bac521d761b480a
   - enabled: 1
     path: Assets/Scenes/endScene.unity
     guid: 246c58c1e7542f144886928662796538
