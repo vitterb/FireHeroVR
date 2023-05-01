@@ -9,11 +9,12 @@ public class ErikNavFleeAI : MonoBehaviour
 
     public enum EnemyState
     {
-        Idle, Moving
+        Idle, Moving, Fleeing
     }
 
     private NavMeshAgent navMeshAgent;
     private GameObject player;
+    public float fleeDistance = 3f;
     public EnemyState currentState = EnemyState.Idle;
     
     void Start()
@@ -37,14 +38,14 @@ public class ErikNavFleeAI : MonoBehaviour
         }
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        if (currentState == EnemyState.Idle && distanceToPlayer < 5f)
+        if ((currentState == EnemyState.Idle || currentState == EnemyState.Moving) && distanceToPlayer < 5f)
         {
-            currentState = EnemyState.Moving;
+            currentState = EnemyState.Fleeing;
         }
 
-        if (currentState == EnemyState.Moving && distanceToPlayer > 5f)
+        if (currentState == EnemyState.Fleeing && distanceToPlayer > fleeDistance)
         {
-            currentState = EnemyState.Idle;
+            currentState = EnemyState.Moving;
         }
     }
 

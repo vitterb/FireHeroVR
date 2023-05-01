@@ -11,7 +11,6 @@ public class ErikBlowback : MonoBehaviour
       if (other.CompareTag("Player"))
       {
          Rigidbody rigidbody = other.GetComponent<Rigidbody>();
-         if (rigidbody != null)
          {
             Vector3 direction = (other.transform.position - transform.position).normalized;
             rigidbody.AddForce(direction * blowback, ForceMode.Impulse);
@@ -19,3 +18,4 @@ public class ErikBlowback : MonoBehaviour
       }
    }
 }
+

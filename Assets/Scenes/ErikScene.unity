@@ -1411,7 +1411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c777de99be1e24b429a93eac9fd358d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 1
+  fleeDistance: 5
+  currentState: 2
 --- !u!195 &1073123779
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2208,17 +2209,17 @@ PrefabInstance:
     - target: {fileID: 8065811302884446168, guid: f377c4e035764f44f8721290bdc4d8c9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.99
+      value: -5.12
       objectReference: {fileID: 0}
     - target: {fileID: 8065811302884446168, guid: f377c4e035764f44f8721290bdc4d8c9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.06191492
+      value: 5.37
       objectReference: {fileID: 0}
     - target: {fileID: 8065811302884446168, guid: f377c4e035764f44f8721290bdc4d8c9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.94
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 8065811302884446168, guid: f377c4e035764f44f8721290bdc4d8c9,
         type: 3}
@@ -2259,6 +2260,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Erik_XRRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065811302884446171, guid: f377c4e035764f44f8721290bdc4d8c9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f377c4e035764f44f8721290bdc4d8c9, type: 3}
